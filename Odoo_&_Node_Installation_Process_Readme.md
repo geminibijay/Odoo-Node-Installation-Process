@@ -57,10 +57,78 @@ Ensure it has the following configuration:
 local   all             all          127.0.0.1/32                md5
 ```
 
+#### Step 2.6: Open PowerShell or Command Prompt.
+Run the psql command to access the PostgreSQL prompt (you might need to add PostgreSQL to your PATH if it's not recognized).
+
+```bash
+psql -U postgres
+```
+Create a New User (Role):
+
+Run the following command to create a new user and set a password:
+sql
+
+```bash
+CREATE USER odoo WITH PASSWORD 'yourpassword';
+```
+
+Create a New Database:
+
+Run the following command to create a new database owned by the user you just created:
+sql
+
+```bash
+CREATE DATABASE odoo18 OWNER odoo;
+```
+Grant Permissions (Optional):
+
+Make sure the user has all necessary permissions:
+sql
+
+```bash
+ALTER ROLE odoo WITH LOGIN;
+```
+
 ---
 
 ### Step 3: Download Odoo
-before download odoo install requirements.txt of odoo 
+If you want use Virtual Environment 
+
+1. Open PowerShell as Administrator:
+
+Search for "PowerShell" in the Start menu, right-click it, and choose "Run as Administrator."
+Set the Execution Policy:
+
+Run the following command to allow the execution of scripts. This command sets the policy to allow running scripts that you create:
+
+```bash
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+When prompted, type Y (Yes) to confirm.
+
+
+Explanation of Execution Policies:
+
+Restricted: No scripts can be run (default setting on Windows).
+RemoteSigned: Allows scripts created on your local machine to run but requires downloaded scripts to be signed by a trusted publisher.
+Activate the Virtual Environment Again:
+
+Go back to your project directory and try activating the virtual environment again:
+
+```bash
+venv\Scripts\Activate
+```
+
+Revert Execution Policy (Optional):
+
+If you want to reset the execution policy after you’re done working, run:
+
+```bash
+Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope CurrentUser
+```
+
+
+before download odoo install requirements.txt of odoo in CMD 
 ```bash
 pip install -r https://github.com/odoo/odoo/raw/18.0/requirements.txt
 ```
@@ -77,14 +145,16 @@ git clone https://github.com/odoo/odoo.git --branch 18.0 --depth 1
 1. Copy `odoo.conf` from the `debian` folder to the main Odoo directory.
 2. Open `odoo.conf` and add the following configuration:
    ```ini
-   [options]
-   admin_passwd = admin_password_here
-   db_host = localhost
-   db_port = 5432
-   db_user = postgres
-   db_password = your_postgres_password
-   addons_path = addons
-   logfile = C:\path\to\your\odoo.log  # Uncomment this line if you need logging.
+  [options]
+db_host = localhost
+db_port = 5432
+db_user = odoo
+db_password = 12345
+db_name = False
+db_maxconn = 64
+//addons_path = C:\Users\Bijay\Desktop\demo\test\odoo\addons
+//logfile = C:\Users\Bijay\Desktop\demo\test\odoo\odoo.log
+//log_level = debug
    ```
    Replace `your_postgres_password` with the password you set for PostgreSQL.
 
