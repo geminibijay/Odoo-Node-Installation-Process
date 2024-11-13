@@ -144,17 +144,17 @@ git clone https://github.com/odoo/odoo.git --branch 18.0 --depth 1
 
 1. Copy `odoo.conf` from the `debian` folder to the main Odoo directory.
 2. Open `odoo.conf` and add the following configuration:
-   ```ini
-  [options]
-db_host = localhost
-db_port = 5432
-db_user = odoo
-db_password = 12345
-db_name = False
-db_maxconn = 64
-//addons_path = C:\Users\Bijay\Desktop\demo\test\odoo\addons
-//logfile = C:\Users\Bijay\Desktop\demo\test\odoo\odoo.log
-//log_level = debug
+   ```bash
+      [options]
+      db_host = localhost
+      db_port = 5432
+      db_user = odoo
+      db_password = 12345
+      db_name = False
+      db_maxconn = 64
+      //addons_path = C:\Users\Bijay\Desktop\demo\test\odoo\addons
+      //logfile = C:\Users\Bijay\Desktop\demo\test\odoo\odoo.log
+      //log_level = debug
    ```
    Replace `your_postgres_password` with the password you set for PostgreSQL.
 
