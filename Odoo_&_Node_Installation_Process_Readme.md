@@ -60,6 +60,11 @@ local   all             all          127.0.0.1/32                md5
 ---
 
 ### Step 3: Download Odoo
+before download odoo install requirements.txt of odoo 
+```bash
+pip install -r https://github.com/odoo/odoo/raw/18.0/requirements.txt
+```
+
 Clone the Odoo 18 repository using Git Bash or Command Prompt:
 ```bash
 git clone https://github.com/odoo/odoo.git --branch 18.0 --depth 1
