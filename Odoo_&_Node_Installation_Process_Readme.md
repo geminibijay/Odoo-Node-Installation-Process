@@ -1,7 +1,7 @@
 
 ---
 
-# Odoo Installation Process
+# Odoo Installation Guide: Tested for Versions 16, 17, and 18.
 
 **Created By:** Bijay Kumar Sahoo  
 **Date:** 13/11/2024 (DD/MM/YYYY)
@@ -78,7 +78,7 @@ Run the following command to create a new database owned by the user you just cr
 sql
 
 ```bash
-CREATE DATABASE odoo18 OWNER odoo;
+CREATE DATABASE odoo<your_version> OWNER odoo;
 ```
 Grant Permissions (Optional):
 
@@ -130,12 +130,12 @@ Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope CurrentUser
 
 before download odoo install requirements.txt of odoo in CMD 
 ```bash
-pip install -r https://github.com/odoo/odoo/raw/18.0/requirements.txt
+pip install -r https://github.com/odoo/odoo/raw/<your_version>/requirements.txt
 ```
 
-Clone the Odoo 18 repository using Git Bash or Command Prompt:
+Clone the Odoo <your_version>repository using Git Bash or Command Prompt:
 ```bash
-git clone https://github.com/odoo/odoo.git --branch 18.0 --depth 1
+git clone https://github.com/odoo/odoo.git --branch <your_version> --depth 1
 ```
 
 ---
